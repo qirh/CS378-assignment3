@@ -5,13 +5,13 @@
     <param-value>assign.resources.UTCoursesApplication</param-value>
   </context-param>
   <servlet>
-    <servlet-name>Resteasy</servlet-name>
+    <servlet-name>assignment3</servlet-name>
     <servlet-class>
             org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
-        </servlet-class>
+    </servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Resteasy</servlet-name>
-    <url-pattern>/assignment3</url-pattern>
+    <servlet-name>assignment3</servlet-name>
+    <url-pattern>/myeavesdrop</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -8,26 +8,25 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
-@XmlRootElement(name = "project")
+@XmlRootElement(name = "meeting")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Project {
+public class Meeting {
 	
 	@XmlElement
-	private String project;
+	private String year;
 	
 	@XmlElement(name = "link")
 	private Set<String> links;
 	
-	public Project() {
-		System.out.println("-- Project constructor");
+	public Meeting() {
+		System.out.println("-- Meeting constructor");
 		links = new HashSet<String>();
 	}
 	public String getName() {
-		return project;
+		return year;
 	}
 	public void setName(String name) {
-		this.project = name;
+		this.year = name;
 	}
 	public Set<String> getLink() {
         return links;
@@ -36,6 +35,6 @@ public class Project {
         this.links.add(link);
     }
     public String toString(){
-    	return project;
+    	return year;
     }
 }
