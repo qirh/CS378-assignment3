@@ -27,23 +27,24 @@ import assign.services.EavesdropService;
 @Path("/myeavesdrop")
 public class UTCoursesResource {
 	
-	EavesdropService eavesdropService;
 	//	http://localhost:8080/assignment3/myeavesdrop/projects/
 	//URL's don't terminate with a '/'
-	final String URL = "http://eavesdrop.openstack.org/meetings";
-	final String ext = "meetings";
+	private final String URL = "http://eavesdrop.openstack.org/meetings";
+	private final String ext = "meetings";
 	Projects projects = new Projects();
 	Meetings meetings = new Meetings();
 	private EavesdropService ser = null;
 
 	public UTCoursesResource() {
-		System.out.println("-- UTCoursesResource constructor");
 		startService();
 	}
 	
 	/* EAVESDROP	*/
 	void setEavesdropService(EavesdropService ser){
 		this.ser = ser;
+	}
+	String getURL(){
+		return URL;
 	}
 	EavesdropService startService(){
 		ser =  EavesdropService.getEavesdrop();
@@ -53,15 +54,12 @@ public class UTCoursesResource {
 	@Path("/eavesdrophelloworld")
 	@Produces("text/html")
 	public String helloEaves() {
-		System.out.println("-- UTCoursesResource helloEaves");
 		return ser.getHello();		
 	}
-	
 	@GET
 	@Path("/helloworld")
 	@Produces("text/html")
 	public String helloWorld() {
-		System.out.println("-- UTCoursesResource helloWorld");
 		return "Hello world";		
 	}
 	@GET

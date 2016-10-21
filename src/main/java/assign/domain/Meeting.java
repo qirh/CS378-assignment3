@@ -19,7 +19,7 @@ public class Meeting {
 	private Set<String> links;
 	
 	public Meeting() {
-		System.out.println("-- Meeting constructor");
+		//System.out.println("-- Meeting constructor");
 		links = new HashSet<String>();
 	}
 	public String getName() {

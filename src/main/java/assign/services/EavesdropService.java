@@ -27,8 +27,6 @@ public class EavesdropService {
 	}
 	public Document getDoc(String URL) throws IOException {
 		Document doc = Jsoup.connect(URL).get();
-		//System.out.println("-- EavesdropService getDoc() URL: " + URL);
-		System.out.println("   and doc data:\n" + doc.html() + "\nand text:\n" + doc.text());
 		return doc;
 	}
 	
@@ -46,12 +44,10 @@ public class EavesdropService {
 		return XML;
 	}
 	public Elements getElements(Document doc) {
-		System.out.println("-- EavesdropService getProjects() doc data:\n " + doc.text());
 		Elements elems = new Elements();
-		
 		//href
 		Elements titles = doc.getElementsByTag("a");
-		System.out.println("-- EavesdropService getProjects() titles:\n " + titles.text());
+		//System.out.println("-- EavesdropService getProjects() titles:\n " + titles.text());
 		for (Element elm : titles){
 			String title = elm.html();
 			
