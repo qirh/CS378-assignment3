@@ -20,8 +20,10 @@ public class Project {
 	private Set<String> links;
 	
 	public Project() {
-		System.out.println("-- Project constructor");
 		links = new HashSet<String>();
+	}
+	public Project(String project) {
+		this.project = project;
 	}
 	public String getName() {
 		return project;

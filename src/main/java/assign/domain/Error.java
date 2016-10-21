@@ -26,7 +26,7 @@ public class Error {
 		this.error = message;
 	}
 	public void setProject(String message) {
-		error.replace("xxx", message);
+		this.error = error.replace("xxx", message);
 	}
     public String toString(){
     	return error;

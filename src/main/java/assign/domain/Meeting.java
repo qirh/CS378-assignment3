@@ -19,14 +19,16 @@ public class Meeting {
 	private Set<String> links;
 	
 	public Meeting() {
-		//System.out.println("-- Meeting constructor");
 		links = new HashSet<String>();
 	}
-	public String getName() {
-		return year;
+	public void setYear(String year) {
+		if( year.matches("^\\d+$") )
+			this.year = year;
+		else
+			this.year = "-1";
 	}
-	public void setName(String name) {
-		this.year = name;
+	public String getYear() {
+		return year;
 	}
 	public Set<String> getLink() {
         return links;

@@ -30,7 +30,6 @@ public class UTCoursesResource {
 	//	http://localhost:8080/assignment3/myeavesdrop/projects/
 	//URL's don't terminate with a '/'
 	private final String URL = "http://eavesdrop.openstack.org/meetings";
-	private final String ext = "meetings";
 	Projects projects = new Projects();
 	Meetings meetings = new Meetings();
 	private EavesdropService ser = null;
@@ -67,10 +66,6 @@ public class UTCoursesResource {
 	@Produces("application/xml")
 	public StreamingOutput getAllProjects() throws IOException {
 		Document doc = ser.getDoc(URL+"/");
-		System.out.println("-- UTCoursesResource getAllProjects() doc data:\n " + doc.data());
-		System.out.println("-- UTCoursesResource getAllProjects() link\n " + URL);
-		//System.out.println("-- UTCoursesResource getDoc() URL: " + URL);
-		//System.out.println("   and doc data:\n" + doc.html() + "\nand text:\n" + doc.text());
 		final Elements elems = ser.getElements(doc);
 		System.out.println("-- and elems:\n " + elems.text());
 		 
@@ -101,7 +96,7 @@ public class UTCoursesResource {
 		         public void write(OutputStream outputStream) throws IOException, WebApplicationException {
 		        	 for(Element e : elems){
 		        		Meeting meeting = new Meeting();
-		        		meeting.setName(e.text());
+		        		meeting.setYear(e.text());
 		        		meeting.addLink(URL + "/" + x + "/" + e.text());
 		        		meetings.addMeeting(meeting);
 		        	 }
